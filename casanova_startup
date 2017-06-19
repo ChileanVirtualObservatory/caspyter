@@ -1,12 +1,12 @@
 #!/bin/sh
 
 set oldpythonpath = "${PYTHONPATH}"
+user=${whoami}
+# Replace /path/to/casa
+caspyter=/path/to/casa
+export PYTHONPATH="${caspyter}/python_packages:${PYTHONPATH}"
 
-
-
-export PYTHONPATH="/home/caspyter/casapy/python_packages:${PYTHONPATH}"
-
-export CASAPATH="/home/caspyter/casapy/casa-release-4.5.2-el6 linux socorro caspyter"
+export CASAPATH="${caspyter}/casa-release-4.5.2-el6 linux socorro ${user}"
 
 
 ipython notebook --port 8081 --ip 0.0.0.0

@@ -57,3 +57,47 @@ Copy/paste this URL into your browser when you connect for the first time,
 
 Now you must replace 0.0.0.0 for localhost in you browser.
 
+## Install Caspyter locally
+
+### 1. Make sure you have the following dependencies
+
+* libice6
+* libsm6
+* libxt6
+* libxrender1
+* libfontconfig1
+* libcups2
+* libxml2
+* libxslt-dev
+* libgtk2.0-0
+* python-qt4
+* Anaconda
+
+## 2. Download CASA
+
+```
+wget https://almascience.eso.org/arcdistribution/casa-distro/linux/release/casa-release-4.5.2-el6.tar.gz
+tar zxf /home/caspyter/casa-release-4.5.2-el6.tar.gz
+```
+
+## 3. Install patchELF
+
+```
+sudo sh /path/to/caspyter/scripts/patchELF.sh
+```
+
+## 4. Install Casanova
+* Edit `infodir` and `casainstalldir` parameters in `caspyter/install_casanova` file, and then run `caspyter/install_casanova`
+* Edit `caspyter` parameter in `caspyter/casanova_startup` and then add this to your `.bashrc`:
+```
+alias caspyter="source /path/to/caspyter/casanova_startup"
+```
+
+### If you get an error like `CXXABI_1.3.8' not found`, you might want to try this:
+```
+strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep CXXABI_1.3.8
+```
+If it returns `CXXABI_1.3.8`, try with:
+```
+cp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /home/user/anaconda2/bin/../lib/libstdc++.so.6
+```
