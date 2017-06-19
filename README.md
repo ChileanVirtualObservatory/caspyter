@@ -1,5 +1,7 @@
 ## Caspyter BASE (CASA + Jupyter)
 
+THIS README IS OUTDATED. Please stay tuned for new updates...
+
 
 ## Install Caspyter on Docker
 ---
